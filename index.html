@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head><title>自作ブロック崩し</title></head>
-<body style="background:black; color:white; text-align:center;">
-    <canvas id="game" width="400" height="400" style="background:#222;"></canvas>
-    <script>
-        const canvas = document.getElementById("game");
-        const ctx = canvas.getContext("2d");
-        let x = 200, y = 350, dx = 2, dy = -2;
-        function draw() {
-            ctx.clearRect(0, 0, 400, 400);
-            ctx.fillStyle = "white";
-            ctx.fillRect(x, y, 20, 20);
-            x += dx; y += dy;
-            if(x < 0 || x > 380) dx = -dx;
-            if(y < 0) dy = -dy;
-            requestAnimationFrame(draw);
-        }
-        draw();
-    </script>
-</body>
-</html>
+const games = [
+    { name: "2048", img: "https://play2048.co/favicon.ico", url: "https://play2048.co/" },
+    { name: "Tetris", img: "https://tetris.com/images/pages/web/tetris-logo-main.png", url: "https://tetris.com/play-tetris" },
+    { name: "Pacman", img: "https://www.google.com/logos/2010/pacman10-i.png", url: "https://www.google.com/logos/2010/pacman10-i.html" },
+    { name: "Flappy Bird", img: "https://flappybird.io/favicon.ico", url: "https://flappybird.io/" },
+    { name: "Chrome Dino", img: "https://chromedino.com/assets/favicon.png", url: "https://chromedino.com/" },
+    { name: "Snake", img: "https://playsnake.org/favicon.ico", url: "https://playsnake.org/" },
+    { name: "Minesweeper", img: "https://minesweepergame.com/favicon.ico", url: "https://minesweepergame.com/play/" },
+    { name: "Solitaire", img: "https://solitaire-web.com/favicon.ico", url: "https://solitaire-web.com/" },
+    { name: "Pong", img: "https://pong-2.com/favicon.ico", url: "https://pong-2.com/" },
+    { name: "Breakout", img: "https://elgoog.im/breakout/favicon.png", url: "https://elgoog.im/breakout/" }
+];
