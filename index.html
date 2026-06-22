@@ -2,37 +2,38 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Game Portal - 100 Games</title>
+    <title>Game Portal</title>
     <style>
-        body { background: #0f0f0f; color: white; font-family: sans-serif; margin: 0; padding: 20px; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; }
-        .game-card { background: #222; padding: 10px; border-radius: 12px; cursor: pointer; transition: 0.3s; }
-        .game-card:hover { transform: scale(1.05); background: #333; }
-        .game-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px; }
-        h1 { margin-bottom: 30px; }
+        body { background: #1a1a1a; color: white; text-align: center; font-family: sans-serif; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 15px; }
+        .game-card { background: #333; padding: 15px; border-radius: 10px; cursor: pointer; text-decoration: none; color: white; display: block; }
+        .game-card img { width: 50px; height: 50px; border-radius: 5px; }
     </style>
 </head>
 <body>
-    <h1>🎮 ALL GAMES (100+)</h1>
+    <h1>🎮 ゲームポータル</h1>
     <div class="grid" id="game-list"></div>
 
     <script>
-        // ゲームデータ（一部抜粋。ここを100個まで増やせば自動で並びます）
         const games = [
-            { name: "2048", img: "https://play-lh.googleusercontent.com/97486zS1-468lQ25672J4p5VlM6b7-j-8-2-4", url: "https://2048game.com/" },
-            { name: "Flappy Bird", img: "https://flappybird.io/icon.png", url: "https://flappybird.io/" },
-            { name: "Pacman", img: "https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_World_Logo.png", url: "https://www.google.com/logos/2010/pacman10-i.html" },
+            { name: "2048", img: "https://play2048.co/favicon.ico", url: "https://play2048.co/" },
             { name: "Tetris", img: "https://tetris.com/images/pages/web/tetris-logo-main.png", url: "https://tetris.com/play-tetris" },
-            { name: "Snake", img: "https://cdn-icons-png.flaticon.com/512/596/596333.png", url: "https://playsnake.org/" }
-            // ここにあと95個分のデータを { name: "名前", img: "画像URL", url: "ゲームURL" } の形式で追加してください
+            { name: "Snake", img: "https://playsnake.org/favicon.ico", url: "https://playsnake.org/" },
+            { name: "Pacman", img: "https://www.google.com/logos/2010/pacman10-i.png", url: "https://www.google.com/logos/2010/pacman10-i.html" },
+            { name: "Flappy Bird", img: "https://flappybird.io/favicon.ico", url: "https://flappybird.io/" },
+            { name: "Chrome Dino", img: "https://chromedino.com/assets/favicon.png", url: "https://chromedino.com/" },
+            { name: "Breakout", img: "https://elgoog.im/breakout/favicon.png", url: "https://elgoog.im/breakout/" },
+            { name: "Minesweeper", img: "https://minesweepergame.com/favicon.ico", url: "https://minesweepergame.com/play/" },
+            { name: "Solitaire", img: "https://solitaire-web.com/favicon.ico", url: "https://solitaire-web.com/" },
+            { name: "Pong", img: "https://pong-2.com/favicon.ico", url: "https://pong-2.com/" }
         ];
 
         const list = document.getElementById('game-list');
         games.forEach(g => {
-            list.innerHTML += `<div class="game-card" onclick="window.open('${g.url}', '_blank')">
-                <img src="${g.img}" onerror="this.src='https://via.placeholder.com/120'">
-                <p style="font-size: 12px;">${g.name}</p>
-            </div>`;
+            list.innerHTML += `<a href="${g.url}" target="_blank" class="game-card">
+                <img src="${g.img}" onerror="this.src='https://via.placeholder.com/50'">
+                <p>${g.name}</p>
+            </a>`;
         });
     </script>
 </body>
