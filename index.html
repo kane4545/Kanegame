@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>私のゲームポータル</title>
+    <meta charset="UTF-8">
+    <title>My Game Portal</title>
+    <style>
+        body { font-family: sans-serif; background: #1a1a1a; color: white; text-align: center; margin: 0; padding: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 10px; }
+        .game-card { background: #333; padding: 10px; border-radius: 10px; cursor: pointer; }
+        .game-card img { width: 100%; border-radius: 8px; }
+        #game-frame { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: none; background: black; }
+    </style>
 </head>
-<body style="font-family: sans-serif; text-align: center; padding: 20px;">
-    <h1>私のゲームポータルサイト</h1>
-    
-    <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
-        <a href="https://neal.fun/the-password-game/" style="padding: 15px; background: #ff4757; color: white; text-decoration: none; border-radius: 8px; width: 200px;">
-            パスワードゲーム
-        </a>
-        
-        <a href="https://flappybird.io/" style="padding: 15px; background: #2ed573; color: white; text-decoration: none; border-radius: 8px; width: 200px;">
-            Flappy Bird
-        </a>
-        
-        <a href="https://2048game.com/" style="padding: 15px; background: #ffa502; color: white; text-decoration: none; border-radius: 8px; width: 200px;">
-            2048
-        </a>
+<body>
+    <h1>🎮 ゲームポータル</h1>
+    <div class="grid">
+        <div class="game-card" onclick="openGame('https://2048game.com/')">
+            <img src="https://play-lh.googleusercontent.com/6U1H2e5V-F_V85Zg3J2M-m2c85g536g6p5" alt="2048">
+            <p>2048</p>
+        </div>
+        <div class="game-card" onclick="openGame('https://flappybird.io/')">
+            <img src="https://play-lh.googleusercontent.com/3_212-32123" alt="FlappyBird">
+            <p>Flappy Bird</p>
+        </div>
     </div>
+
+    <iframe id="game-frame"></iframe>
+
+    <script>
+        function openGame(url) {
+            const frame = document.getElementById('game-frame');
+            frame.src = url;
+            frame.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
