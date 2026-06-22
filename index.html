@@ -1,61 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Portal</title>
+    <style>
+        body { background: #121212; color: #fff; font-family: sans-serif; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 15px; }
+        .game-card { text-decoration: none; color: white; text-align: center; }
+        .game-card img { width: 100px; height: 100px; border-radius: 15px; }
+    </style>
+</head>
+<body>
+    <h1>🎮 GAME PORTAL</h1>
+    <div class="grid" id="game-list"></div>
+
+    <script>
+        // ここにゲームデータを入れます
         const games = [
-            // 1-10
             { img: "https://play2048.co/favicon.ico", url: "https://play2048.co/" },
-            { img: "https://tetris.com/images/pages/web/tetris-logo-main.png", url: "https://tetris.com/play-tetris" },
-            { img: "https://www.google.com/logos/2010/pacman10-i.png", url: "https://www.google.com/logos/2010/pacman10-i.html" },
-            { img: "https://flappybird.io/favicon.png", url: "https://flappybird.io/" },
-            { img: "https://chromedino.com/assets/favicon.png", url: "https://chromedino.com/" },
-            { img: "https://playsnake.org/favicon.ico", url: "https://playsnake.org/" },
-            { img: "https://minesweepergame.com/favicon.ico", url: "https://minesweepergame.com/play/" },
-            { img: "https://solitaire-web.com/favicon.ico", url: "https://solitaire-web.com/" },
-            { img: "https://pong-2.com/favicon.ico", url: "https://pong-2.com/" },
-            { img: "https://elgoog.im/breakout/favicon.png", url: "https://elgoog.im/breakout/" },
-            // 11-100 (URLを埋めれば自動で100個になります)
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" },
-            { img: "https://via.placeholder.com/100", url: "#" }, { img: "https://via.placeholder.com/100", url: "#" }
+            { img: "https://tetris.com/images/pages/web/tetris-logo-main.png", url: "https://tetris.com/play-tetris" }
         ];
+
+        // 画面に表示する処理
+        const container = document.getElementById('game-list');
+        games.forEach(function(g) {
+            container.innerHTML += '<a href="' + g.url + '" target="_blank" class="game-card"><img src="' + g.img + '" onerror="this.src=\'https://via.placeholder.com/100\'"></a>';
+        });
+    </script>
+</body>
+</html>
